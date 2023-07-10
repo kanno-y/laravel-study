@@ -29,5 +29,17 @@ class RequestSampleController extends Controller
         return 'プロフィールページのURLは'.$url;
 
     }
-    
+
+    // ダミーログイン
+    public function login(Request $request) {
+        if ($request->get('email') === 'user@example.com' && $request->get('password') === '12345678') {
+            return 'ログイン成功';
+        }
+        return 'ログイン失敗';
+    }
+
+    // ログインページ
+    public function loginForm() {
+        return view('login');
+    }
 }
