@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UtilityController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\RequestSampleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,3 +36,10 @@ Route::get('/omikuji', [GameController::class, 'omikuji']);
 
 // モンティ・ホール問題
 Route::get('/monty-hall',[GameController::class, 'montyHall']);
+
+// Request
+Route::get('/form', [RequestSampleController::class, 'form']);
+Route::get('/query-strings', [RequestSampleController::class, 'queryStrings']);
+Route::get('/users/{id}', [RequestSampleController::class, 'profile'])->name(name: 'profile');
+Route::get('/products/{category}/{year}', [RequestSampleController::class, 'productsArchive']);
+Route::get('/route-link', [RequestSampleController::class, 'routeLink']);
