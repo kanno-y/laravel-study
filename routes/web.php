@@ -3,6 +3,7 @@
 use App\Http\Controllers\UtilityController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\RequestSampleController;
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,3 +48,6 @@ Route::get('/route-link', [RequestSampleController::class, 'routeLink']);
 // ログイン
 Route::get('/login', [RequestSampleController::class, 'loginForm']);
 Route::post('/login', [RequestSampleController::class, 'login'])->name(name: 'login');
+
+// イベント
+Route::resource('/events', EventController::class)->only(['create', 'store']);
